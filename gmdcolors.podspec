@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '8.0'
   s.source_files   = 'Source/GMDColors.swift'
-  s.resource_bundle = {  }
   s.frameworks = 'UIKit'
   s.requires_arc = true
 end
