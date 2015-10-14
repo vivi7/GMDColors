@@ -57,7 +57,7 @@ $ pod install
 ## Usage
 
 Super easy way how to use a normale UIColor.
-You can find UIColor.whiteColor() and the new UIColor.GMDEmeraldColor()
+You can find UIColor.whiteColor() and the new UIColor.GMDemeraldColor()
 
 Colors taken from: http://www.flatuicolorpicker.com
 
