@@ -9,6 +9,10 @@
 
 import UIKit
 
+public func randomNumberFrom(from: Range<Int>) -> Int {
+    return from.startIndex + Int(arc4random_uniform(UInt32(from.endIndex - from.startIndex)))
+}
+
 extension UIColor {
     
     public var hexStringValue:String {
@@ -17,6 +21,108 @@ extension UIColor {
             Int(CGColorGetComponents(self.CGColor)[1] * 255.0),
             Int(CGColorGetComponents(self.CGColor)[2] * 255.0))
     }
+    
+    private static var gMDColorsArray : [UIColor] = [
+        UIColor.GMDchestnutRoseColor(),
+        UIColor.GMDpomegranateColor(),
+        UIColor.GMDthunderbirdColor(),
+        UIColor.GMDoldBrickColor(),
+        UIColor.GMDflamingoColor(),
+        UIColor.GMDvalenciaColor(),
+        UIColor.GMDtallPoppyColor(),
+        UIColor.GMDmonzaColor(),
+        UIColor.GMDcinnabarColor(),
+        UIColor.GMDrazzmatazzColor(),
+        UIColor.GMDsunsetOrangeColor(),
+        UIColor.GMDwaxFlowerColor(),
+        UIColor.GMDcabaretColor(),
+        UIColor.GMDnewYorkPinkColor(),
+        UIColor.GMDradicalRedColor(),
+        UIColor.GMDsungloColor(),
+        UIColor.GMDsnuffColor(),
+        UIColor.GMDrebeccapurpleColor(),
+        UIColor.GMDhoneyFlowerColor(),
+        UIColor.GMDwistfulColor(),
+        UIColor.GMDplumColor(),
+        UIColor.GMDseanceColor(),
+        UIColor.GMDmediumPurpleColor(),
+        UIColor.GMDlightWisteriaColor(),
+        UIColor.GMDstudioColor(),
+        UIColor.GMDwisteriaColor(),
+        UIColor.GMDsanMarinoColor(),
+        UIColor.GMDaliceBlueColor(),
+        UIColor.GMDroyalBlueColor(),
+        UIColor.GMDpictonBlueSpryColor(),
+        UIColor.GMDsprayColor(),
+        UIColor.GMDshakespeareColor(),
+        UIColor.GMDhummingBirdColor(),
+        UIColor.GMDpictonBlueColor(),
+        UIColor.GMDcuriousBlueColor(),
+        UIColor.GMDmadisonColor(),
+        UIColor.GMDdodgerBlueColor(),
+        UIColor.GMDmingColor(),
+        UIColor.GMDebonyClayColor(),
+        UIColor.GMDmalibuColor(),
+        UIColor.GMDsummerSkyColor(),
+        UIColor.GMDchambrayColor(),
+        UIColor.GMDpickledBluewoodColor(),
+        UIColor.GMDhokiColor(),
+        UIColor.GMDjellyBeanColor(),
+        UIColor.GMDjacksonsPurpleColor(),
+        UIColor.GMDjordyBlueColor(),
+        UIColor.GMDsteelBlueColor(),
+        UIColor.GMDfountainBlueColor(),
+        UIColor.GMDmediumTurquoiseColor(),
+        UIColor.GMDaquaIslandColor(),
+        UIColor.GMDgossipColor(),
+        UIColor.GMDdarkSeaGreenColor(),
+        UIColor.GMDeucalyptusColor(),
+        UIColor.GMDcaribbeanGreenColor(),
+        UIColor.GMDsilverTreeColor(),
+        UIColor.GMDdownyColor(),
+        UIColor.GMDmountainMeadowColor(),
+        UIColor.GMDlightSeaGreenColor(),
+        UIColor.GMDmediumAquamarineColor(),
+        UIColor.GMDturquoiseColor(),
+        UIColor.GMDmadangColor(),
+        UIColor.GMDriptideColor(),
+        UIColor.GMDshamrockColor(),
+        UIColor.GMDniagaraColor(),
+        UIColor.GMDemeraldColor(),
+        UIColor.GMDgreenHazeColor(),
+        UIColor.GMDfreeSpeechAquamarineColor(),
+        UIColor.GMDoceanGreenColor(),
+        UIColor.GMDniagara1Color(),
+        UIColor.GMDjadeColor(),
+        UIColor.GMDsalemColor(),
+        UIColor.GMDobservatoryColor(),
+        UIColor.GMDjungleGreenColor(),
+        UIColor.GMDcapeHoneyColor(),
+        UIColor.GMDcaliforniaColor(),
+        UIColor.GMDfireBushColor(),
+        UIColor.GMDtahitiGoldColor(),
+        UIColor.GMDcasablancaColor(),
+        UIColor.GMDcrustaColor(),
+        UIColor.GMDseaBuckthornColor(),
+        UIColor.GMDlightningYellowColor(),
+        UIColor.GMDburntOrangeColor(),
+        UIColor.GMDbuttercupColor(),
+        UIColor.GMDecstasyColor(),
+        UIColor.GMDsandstormColor(),
+        UIColor.GMDjaffaColor(),
+        UIColor.GMDzestColor(),
+        UIColor.GMDwhiteSmokeColor(),
+        UIColor.GMDlynchColor(),
+        UIColor.GMDpumiceColor(),
+        UIColor.GMDgalleryColor(),
+        UIColor.GMDsilverSandColor(),
+        UIColor.GMDporcelainColor(),
+        UIColor.GMDcascadeColor(),
+        UIColor.GMDironColor(),
+        UIColor.GMDedwardColor(),
+        UIColor.GMDcararraColor(),
+        UIColor.GMDsilverColor()
+    ]
     
     public func getRGBA() -> (red:Int, green:Int, blue:Int, alpha:Int)? {
         var fRed : CGFloat = 0
@@ -34,6 +140,14 @@ extension UIColor {
             // Could not extract RGBA components:
             return nil
         }
+    }
+    
+    public static func GMDRandomColor() -> UIColor{
+        return gMDColorsArray[randomNumberFrom(0...(gMDColorsArray.count - 1))]
+    }
+    
+    public static func GMDColors() -> [UIColor]{
+        return self.gMDColorsArray
     }
     
     
@@ -826,111 +940,6 @@ extension UIColor {
     }
     public static func GMDsilverColor(alfa: CGFloat) -> UIColor{
         return self.init(red:0.7490196, green:0.7490196, blue:0.7490196, alpha: alfa)
-    }
-    
-    
-    public static func GMDColors() -> Array<UIColor>{
-        return [
-            self.GMDchestnutRoseColor(),
-            self.GMDpomegranateColor(),
-            self.GMDthunderbirdColor(),
-            self.GMDoldBrickColor(),
-            self.GMDflamingoColor(),
-            self.GMDvalenciaColor(),
-            self.GMDtallPoppyColor(),
-            self.GMDmonzaColor(),
-            self.GMDcinnabarColor(),
-            self.GMDrazzmatazzColor(),
-            self.GMDsunsetOrangeColor(),
-            self.GMDwaxFlowerColor(),
-            self.GMDcabaretColor(),
-            self.GMDnewYorkPinkColor(),
-            self.GMDradicalRedColor(),
-            self.GMDsungloColor(),
-            self.GMDsnuffColor(),
-            self.GMDrebeccapurpleColor(),
-            self.GMDhoneyFlowerColor(),
-            self.GMDwistfulColor(),
-            self.GMDplumColor(),
-            self.GMDseanceColor(),
-            self.GMDmediumPurpleColor(),
-            self.GMDlightWisteriaColor(),
-            self.GMDstudioColor(),
-            self.GMDwisteriaColor(),
-            self.GMDsanMarinoColor(),
-            self.GMDaliceBlueColor(),
-            self.GMDroyalBlueColor(),
-            self.GMDpictonBlueSpryColor(),
-            self.GMDsprayColor(),
-            self.GMDshakespeareColor(),
-            self.GMDhummingBirdColor(),
-            self.GMDpictonBlueColor(),
-            self.GMDcuriousBlueColor(),
-            self.GMDmadisonColor(),
-            self.GMDdodgerBlueColor(),
-            self.GMDmingColor(),
-            self.GMDebonyClayColor(),
-            self.GMDmalibuColor(),
-            self.GMDsummerSkyColor(),
-            self.GMDchambrayColor(),
-            self.GMDpickledBluewoodColor(),
-            self.GMDhokiColor(),
-            self.GMDjellyBeanColor(),
-            self.GMDjacksonsPurpleColor(),
-            self.GMDjordyBlueColor(),
-            self.GMDsteelBlueColor(),
-            self.GMDfountainBlueColor(),
-            self.GMDmediumTurquoiseColor(),
-            self.GMDaquaIslandColor(),
-            self.GMDgossipColor(),
-            self.GMDdarkSeaGreenColor(),
-            self.GMDeucalyptusColor(),
-            self.GMDcaribbeanGreenColor(),
-            self.GMDsilverTreeColor(),
-            self.GMDdownyColor(),
-            self.GMDmountainMeadowColor(),
-            self.GMDlightSeaGreenColor(),
-            self.GMDmediumAquamarineColor(),
-            self.GMDturquoiseColor(),
-            self.GMDmadangColor(),
-            self.GMDriptideColor(),
-            self.GMDshamrockColor(),
-            self.GMDniagaraColor(),
-            self.GMDemeraldColor(),
-            self.GMDgreenHazeColor(),
-            self.GMDfreeSpeechAquamarineColor(),
-            self.GMDoceanGreenColor(),
-            self.GMDniagara1Color(),
-            self.GMDjadeColor(),
-            self.GMDsalemColor(),
-            self.GMDobservatoryColor(),
-            self.GMDjungleGreenColor(),
-            self.GMDcapeHoneyColor(),
-            self.GMDcaliforniaColor(),
-            self.GMDfireBushColor(),
-            self.GMDtahitiGoldColor(),
-            self.GMDcasablancaColor(),
-            self.GMDcrustaColor(),
-            self.GMDseaBuckthornColor(),
-            self.GMDlightningYellowColor(),
-            self.GMDburntOrangeColor(),
-            self.GMDbuttercupColor(),
-            self.GMDecstasyColor(),
-            self.GMDsandstormColor(),
-            self.GMDjaffaColor(),
-            self.GMDzestColor(),
-            self.GMDwhiteSmokeColor(),
-            self.GMDlynchColor(),
-            self.GMDpumiceColor(),
-            self.GMDgalleryColor(),
-            self.GMDsilverSandColor(),
-            self.GMDporcelainColor(),
-            self.GMDcascadeColor(),
-            self.GMDironColor(),
-            self.GMDedwardColor(),
-            self.GMDcararraColor(),
-            self.GMDsilverColor()
-        ]
     }
     
 }

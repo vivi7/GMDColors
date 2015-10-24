@@ -12,7 +12,7 @@ class GMDColorsTableViewController: UIViewController, UITableViewDelegate, UITab
 
     @IBOutlet var tableView: UITableView!
     
-    let gMDColors : Array = UIColor.GMDColors()
+    let gMDColors : [UIColor] = UIColor.GMDColors()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class GMDColorsTableViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let color : UIColor = gMDColors[indexPath.row]
+        let color = gMDColors[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         cell.backgroundColor = color
@@ -40,6 +40,9 @@ class GMDColorsTableViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
 
+    @IBAction func randomColorAction(sender: UIButton) {
+        self.view.backgroundColor = UIColor.GMDRandomColor()
+    }
 
 }
 
