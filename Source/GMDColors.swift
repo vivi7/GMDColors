@@ -13,7 +13,25 @@ public func randomNumberFrom(from: Range<Int>) -> Int {
     return from.startIndex + Int(arc4random_uniform(UInt32(from.endIndex - from.startIndex)))
 }
 
+extension CALayer {
+    func configureGradientBackground(colors:[CGColorRef]){
+        let gradient = CAGradientLayer()
+        let maxWidth = max(self.bounds.size.height,self.bounds.size.width)
+        let squareFrame = CGRect(origin: self.bounds.origin, size: CGSizeMake(maxWidth, maxWidth))
+        gradient.frame = squareFrame
+        gradient.colors = colors
+        self.insertSublayer(gradient, atIndex: 0)
+    }
+}
+
 extension UIColor {
+    
+     private static let rainbowColors : [CGColorRef] = [UIColor.GMDpomegranateColor().CGColor, UIColor.GMDcaliforniaColor().CGColor, UIColor.GMDsandstormColor().CGColor, UIColor.GMDemeraldColor().CGColor, UIColor.GMDdodgerBlueColor().CGColor, UIColor.GMDstudioColor().CGColor, UIColor.GMDrebeccapurpleColor().CGColor]
+    
+    public static func rainbowBackground(viewPassed : UIView){
+        //self.rainbowBackgroundAtIndex(viewPassed, index: 0)
+        viewPassed.layer.configureGradientBackground(rainbowColors)
+    }
     
     public var hexStringValue:String {
         return String(format: "#%02X%02X%02X",
