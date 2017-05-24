@@ -1,7 +1,0 @@
-digraph G {
-	node [shape=box];
-	
-	
-	edge [color=blue, dir=both];
-}
-
